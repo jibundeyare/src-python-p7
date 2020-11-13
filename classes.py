@@ -1,3 +1,45 @@
+class Person:
+    def __init__(self, firstname: str='', lastname: str='', birth_year: int=0):
+        self._firstname = firstname
+        self._lastname = lastname
+        self._birth_year = birth_year
+
+    def get_firstname(self) -> str:
+        return self._firstname
+
+    # une fonction qui ne renvoit rien renvoit en :
+    # - python : None
+    # - java : void
+    # - php : null
+    # - js : undefined
+    def set_firstname(self, firstname: str) -> None:
+        self._firstname = firstname
+
+    def get_lastname(self) -> str:
+        return self._lastname
+
+    def set_lastname(self, lastname: str) -> None:
+        self._lastname = lastname
+
+    def get_birth_year(self) -> int:
+        return self._birth_year
+
+    def set_birth_year(self, birth_year: int) -> None:
+        self._birth_year = birth_year
+
+p1 = Person('Hedy', 'Lamarr', 1914)
+# p1.set_firstname('Hedy')
+# p1.set_lastname('Lamarr')
+# p1.set_bidth_year(1914)
+print(p1.get_firstname())
+print(p1.get_lastname())
+print(p1.get_birth_year())
+
+p2 = Person()
+print(p2.get_firstname())
+print(p2.get_lastname())
+print(p2.get_birth_year())
+
 class CarFoo:
     def __init__(self):
         """Constructeur de la classe CarFoo"""
@@ -23,7 +65,7 @@ class CarBar:
     # un setter == une méthode qui permet de modifier la valeur d'un attribut
 
     # getter pour l'attribut _wheels
-    def get_wheels():
+    def get_wheels(self):
         return self._wheels
 
     # pas besoin de setter pour l'attribut _wheels
@@ -48,7 +90,7 @@ class CarBar:
         self._engine_on = False
 
     # setter pour l'attribut _seats
-    def get_seats():
+    def get_seats(self):
         return self._wheels
 
     # pas besoin de setter pour l'attribut _seats
@@ -90,7 +132,7 @@ class CarBar:
     # ce troisième setter « personnalisé » pour l'attribut _passengers
     # permet de faire décendre tout le monde sans se préoccuper
     # du nombre de passagers du véhicule
-    def all_passengers_off():
+    def all_passengers_off(self):
         self._passengers = 0
 
 # instance d'une classe == objet == une variable contenant une valeur du type de la classe
@@ -124,4 +166,8 @@ print(v3.get_passengers())
 v4 = CarBar()
 print(v4.is_engine_on())
 v4.add_passengers(10)
+print(v4.get_passengers())
+v4.remove_passengers(2)
+print(v4.get_passengers())
+v4.all_passengers_off()
 print(v4.get_passengers())
